@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const config = require('./config');
+const database = require("./config/database");
 const configurationRoutes = require('./routes/configurationRoutes');
 const dotenv = require("dotenv");
+
+database.connect();
 
 dotenv.config();
 
@@ -18,10 +20,7 @@ app.use(bodyParser.json());
 // Routes
 app.use('/api', configurationRoutes);
 
-// Connect to MongoDB
-mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

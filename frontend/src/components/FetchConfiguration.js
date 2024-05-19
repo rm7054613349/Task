@@ -12,7 +12,7 @@ const FetchConfiguration = () => {
       const response = await axios.get(`http://localhost:4000/api/configurations/${configId}`);
       if (response.data.length === 0) {
         setError('No data found');
-        setData(null); // Clear previous data if any
+        setData(null); 
       } else {
         setData(response.data);
         setError('');
@@ -25,7 +25,7 @@ const FetchConfiguration = () => {
 
   const handleChange = (e) => {
     setConfigId(e.target.value);
-    // Reset error when input changes
+   
     setError('');
   };
 
