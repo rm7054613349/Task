@@ -9,7 +9,7 @@ const FetchConfiguration = () => {
 
   const fetchConfig = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/configurations/${configId}`);
+      const response = await axios.get(`https://task-2-423l.onrender.com/api/configurations/${configId}`);
       if (response.data.length === 0) {
         setError('No data found');
         setData(null); 
