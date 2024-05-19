@@ -14,7 +14,10 @@ const FetchConfiguration = () => {
     setData(null);
 
     try {
-      const response = await axios.get(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`);
+
+         
+        const response = await axios.get(`https://task-2-423l.onrender.com/api/configurations/${configId}`);
+    //   const response = await axios.get(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`);
       if (response.data.length === 0) {
         setError('No data found');
       } else {

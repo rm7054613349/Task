@@ -9,7 +9,9 @@ const UpdateRemark = () => {
 
   const updateRemark = async () => {
     try {
-      const response = await axios.put(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`, { remark });
+     
+    // const response = await axios.put(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`, { remark });
+      const response = await axios.put(`https://task-2-423l.onrender.com/api/configurations/${configId}`, { remark });
       setMessage(response.data.message);
     } catch (error) {
       console.error("Error updating remark:", error);
