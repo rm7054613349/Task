@@ -1,16 +1,15 @@
 .fetch-config-container {
-    font-family: Arial, sans-serif;
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #f9f9f9;
   }
   
-  .fetch-config-container h1 {
+  h1 {
     text-align: center;
-    color: #333;
+    margin-bottom: 20px;
   }
   
   .input-section {
@@ -19,32 +18,42 @@
   
   .input-section label {
     display: block;
+    margin-bottom: 8px;
     font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
   }
   
   .input-section input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin-right: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
   }
   
   .input-section button {
-    display: inline-block;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
   .input-section button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
+  }
+  
+  .loader {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #007bff;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 20px;
+    text-align: center;
   }
   
   .data-section {
@@ -55,18 +64,4 @@
     padding: 10px;
     border-bottom: 1px solid #ccc;
   }
-  
-  .data-row:last-child {
-    border-bottom: none;
-  }
-
-  .error-message {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #dc3545;
-    border-radius: 4px;
-    background-color: #f8d7da;
-    color: #721c24;
-  }
-  
   

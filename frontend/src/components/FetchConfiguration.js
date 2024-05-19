@@ -6,26 +6,30 @@ const FetchConfiguration = () => {
   const [configId, setConfigId] = useState('');
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const fetchConfig = async () => {
+    setLoading(true);
+    setError('');
+    setData(null);
+
     try {
-      const response = await axios.get(`https://task-2-423l.onrender.com/api/configurations/${configId}`);
+      const response = await axios.get(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`);
       if (response.data.length === 0) {
         setError('No data found');
-        setData(null); 
       } else {
         setData(response.data);
-        setError('');
       }
     } catch (error) {
       console.error("Error fetching configuration:", error);
       setError('Error fetching data.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleChange = (e) => {
     setConfigId(e.target.value);
-   
     setError('');
   };
 
@@ -42,8 +46,9 @@ const FetchConfiguration = () => {
         />
         <button onClick={fetchConfig}>Submit</button>
       </div>
+      {loading && <div className="loader">Loading...</div>}
       {error && <div className="error-message">{error}</div>}
-      {data ? (
+      {data && (
         <div className="data-section">
           {data.map((row, index) => (
             <div key={index} className="data-row">
@@ -51,7 +56,7 @@ const FetchConfiguration = () => {
             </div>
           ))}
         </div>
-      ) : null}
+      )}
     </div>
   );
 };
