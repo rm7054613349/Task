@@ -6,15 +6,20 @@ const UpdateRemark = () => {
   const [configId, setConfigId] = useState('');
   const [remark, setRemark] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const updateRemark = async () => {
+    setLoading(true);
+    setMessage('');
+    
     try {
-     
-    // const response = await axios.put(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`, { remark });
-      const response = await axios.put(`https://task-2-423l.onrender.com/api/configurations/${configId}`, { remark });
+      const response = await axios.put(`https://task-3-vh3k.onrender.com/api/configurations/${configId}`, { remark });
       setMessage(response.data.message);
     } catch (error) {
       console.error("Error updating remark:", error);
+      setMessage('Error updating remark.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -43,8 +48,9 @@ const UpdateRemark = () => {
         ></textarea>
       </div>
       
-      <button onClick={updateRemark}>Submit</button>
+      <button onClick={updateRemark} disabled={loading}>Submit</button>
       
+      {loading && <div className="loader">Loading...</div>}
       {message && <div className="message">{message}</div>}
     </div>
   );
