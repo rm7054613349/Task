@@ -1,5 +1,5 @@
 
-   * Owner Database (Used for Testing )
+   * Owner Database 
      
                         when we are use Owner Databse
                         config ID - qwertyuiop
@@ -17,7 +17,7 @@
 
 
   
-   * My Database
+   * My Database  ( Used for Testing )
      
                            when we are used own data base
                            Config ID -- sampleConfigId
